@@ -11,7 +11,7 @@
 			<Clean command="cd ../src;$make -f $makefile clean" />
 			<DistClean command="$make -f $makefile distclean$target" />
 			<AskRebuildNeeded command="$make -q -f $makefile $target" />
-			<SilentBuild command="$make -s -f $makefile $target" />
+			<SilentBuild command="$make -f $makefile $target" />
 		</MakeCommands>
 		<Build>
 			<Target title="default">
@@ -26,6 +26,9 @@
 					<Add option="-O3" />
 					<Add option="-Wall" />
 					<Add option="-fsigned-char" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="../vcpp" />
@@ -33,23 +36,27 @@
 				<Linker>
 					<Add option="-mwindows" />
 					<Add library="..\lib\curl_mingw\libcurl.a" />
-					<Add library="SDL" />
-					<Add library="SDL_image" />
-					<Add library="zdll" />
+					<Add library="..\lib\SDL.lib" />
+					<Add library="..\lib\SDL_image.lib" />
+					<Add library="..\lib\zdll.lib" />
 					<Add library="opengl32" />
-					<Add library="enet" />
-					<Add library="OpenAL32" />
+					<Add library="..\lib\enet.lib" />
+					<Add library="..\lib\OpenAL32.lib" />
 					<Add library="..\lib\libvorbisfile.lib" />
-					<Add library="jpeg" />
+					<Add library="..\lib\jpeg.lib" />
 					<Add library="..\lib\libintl.lib" />
-					<Add library="wldap32" />
-					<Add library="ws2_32" />
-					<Add library="winmm" />
+					<Add library="..\lib\wldap32.lib" />
+					<Add library="..\lib\ws2_32.lib" />
+					<Add library="..\lib\winmm.lib" />
 					<Add library="..\lib\curl_mingw\libidn.a" />
 					<Add library="..\lib\curl_mingw\librtmp.a" />
 					<Add library="..\lib\curl_mingw\libssl.a" />
 					<Add library="..\lib\curl_mingw\libssh2.a" />
 					<Add library="..\lib\curl_mingw\libcrypto.a" />
+					<Add library="..\lib\EFX-Util.lib" />
+					<Add library="..\lib\libcurl.lib" />
+					<Add library="..\lib\ogg.lib" />
+					<Add library="..\lib\vorbis.lib" />
 					<Add directory="../lib" />
 				</Linker>
 			</Target>
@@ -66,30 +73,35 @@
 					<Add option="-g" />
 					<Add option="-fsigned-char" />
 					<Add option="-D_DEBUG" />
+					<Add option="-DWIN32" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="../vcpp" />
 				</ResourceCompiler>
 				<Linker>
 					<Add library="..\lib\curl_mingw\libcurl.a" />
-					<Add library="SDL" />
-					<Add library="SDL_image" />
-					<Add library="zdll" />
+					<Add library="..\lib\SDL.lib" />
+					<Add library="..\lib\SDL_image.lib" />
+					<Add library="..\lib\zdll.lib" />
 					<Add library="opengl32" />
-					<Add library="enet" />
-					<Add library="OpenAL32" />
+					<Add library="..\lib\enet.lib" />
+					<Add library="..\lib\OpenAL32.lib" />
 					<Add library="..\lib\libvorbisfile.lib" />
-					<Add library="jpeg" />
+					<Add library="..\lib\jpeg.lib" />
 					<Add library="..\lib\libintl.lib" />
-					<Add library="wldap32" />
-					<Add library="ws2_32" />
-					<Add library="winmm" />
+					<Add library="..\lib\wldap32.lib" />
+					<Add library="..\lib\ws2_32.lib" />
+					<Add library="..\lib\winmm.lib" />
 					<Add library="..\lib\curl_mingw\libidn.a" />
 					<Add library="..\lib\curl_mingw\librtmp.a" />
 					<Add library="..\lib\curl_mingw\libssl.a" />
 					<Add library="..\lib\curl_mingw\libssh2.a" />
 					<Add library="..\lib\curl_mingw\libcrypto.a" />
 					<Add library="gdi32" />
+					<Add library="..\lib\EFX-Util.lib" />
+					<Add library="..\lib\libcurl.lib" />
+					<Add library="..\lib\ogg.lib" />
+					<Add library="..\lib\vorbis.lib" />
 					<Add directory="../lib" />
 				</Linker>
 			</Target>
@@ -106,15 +118,18 @@
 					<Add option="-Wall" />
 					<Add option="-fsigned-char" />
 					<Add option="-DSTANDALONE" />
+					<Add option="-DWIN32" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="../vcpp" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="zdll" />
-					<Add library="enet" />
-					<Add library="ws2_32" />
-					<Add library="winmm" />
+					<Add library="..\lib\zdll.lib" />
+					<Add library="..\lib\enet.lib" />
+					<Add library="..\lib\ws2_32.lib" />
+					<Add library="..\lib\winmm.lib" />
+					<Add library="..\lib\SDL.lib" />
+					<Add library="..\lib\SDL_image.lib" />
 					<Add directory="../lib" />
 				</Linker>
 			</Target>
@@ -133,15 +148,18 @@
 					<Add option="-fsigned-char" />
 					<Add option="-D_DEBUG" />
 					<Add option="-DSTANDALONE" />
+					<Add option="-DWIN32" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="../vcpp" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="zdll" />
-					<Add library="enet" />
-					<Add library="ws2_32" />
-					<Add library="winmm" />
+					<Add library="..\lib\zdll.lib" />
+					<Add library="..\lib\enet.lib" />
+					<Add library="..\lib\ws2_32.lib" />
+					<Add library="..\lib\winmm.lib" />
+					<Add library="..\lib\SDL.lib" />
+					<Add library="..\lib\SDL_image.lib" />
 					<Add directory="../lib" />
 				</Linker>
 			</Target>
@@ -158,15 +176,16 @@
 					<Add option="-Wall" />
 					<Add option="-fsigned-char" />
 					<Add option="-DSTANDALONE" />
+					<Add option="-DWIN32" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="../vcpp" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="zdll" />
-					<Add library="enet" />
-					<Add library="ws2_32" />
-					<Add library="winmm" />
+					<Add library="..\lib\zdll.lib" />
+					<Add library="..\lib\enet.lib" />
+					<Add library="..\lib\ws2_32.lib" />
+					<Add library="..\lib\winmm.lib" />
 					<Add directory="../lib" />
 				</Linker>
 			</Target>
